@@ -2,66 +2,66 @@
 Docker常用命令：
 
 ## 0 在docker仓库中搜索mysql的镜像：
-docker search mysql
-下载镜像： 
-docker pull mysql:5.7.21
-mysql:5.7.21:冒号后面加上:5.7.21表示下载指定版本的mysql
+	docker search mysql
+	下载镜像： 
+	docker pull mysql:5.7.21
+	mysql:5.7.21:冒号后面加上:5.7.21表示下载指定版本的mysql
 
 ## 0-1 查看本地镜像：
-docker images -a 
+	docker images -a 
 
 ## 0-2 查看运行中的容器：
-docker ps -a
--a 表示所有已安装的镜像
-docker ps -s
--s 表示已启动的镜像的容器
+	docker ps -a
+	-a 表示所有已安装的镜像
+	docker ps -s
+	-s 表示已启动的镜像的容器
 
 ## 0-3 删除指定镜像通过下面命令：
-docker rmi image-id
-删除所有镜像通过下面命令：
-docker rmi $(docker images -q)
+	docker rmi image-id
+	删除所有镜像通过下面命令：
+	docker rmi $(docker images -q)
 
 
 ## 1 启动mysql实例
-docker run --name mysql_master -p 3316:3306 -e MYSQL_ROOT_PASSWORD=chenfeng1982 -d mysql:5.7
-注：
-docker run -d -p [本机端口]:[docker服务器端口] --name container-name image-name
---name参数：是为容器取得名称；
--d：表示detached，意味着执行完这句命令后控制台将不会被阻碍，可继续输入命令操作；
-image-name： 是要使用哪个镜像来运行容器。
--p：端口映射
-本机端口： 对外暴露的端口
-docker服务器端口： 各个应用占用的端口，比如mysql占用3316
+	docker run --name mysql_master -p 3316:3306 -e MYSQL_ROOT_PASSWORD=chenfeng1982 -d mysql:5.7
+	注：
+	docker run -d -p [本机端口]:[docker服务器端口] --name container-name image-name
+	--name参数：是为容器取得名称；
+	-d：表示detached，意味着执行完这句命令后控制台将不会被阻碍，可继续输入命令操作；
+	image-name： 是要使用哪个镜像来运行容器。
+	-p：端口映射
+	本机端口： 对外暴露的端口
+	docker服务器端口： 各个应用占用的端口，比如mysql占用3316
 
 
-mysql_master： 容器别名
-chenfeng1982：初始化设置的root用户的密码
-5.7：mysql的版本，不写默认使用最新版
--p 3316:3306：表示在这个容器中使用3306端口(第二个)映射到本机的端口号为3316(第一个)
+	mysql_master： 容器别名
+	chenfeng1982：初始化设置的root用户的密码
+	5.7：mysql的版本，不写默认使用最新版
+	-p 3316:3306：表示在这个容器中使用3306端口(第二个)映射到本机的端口号为3316(第一个)
 
 ## 2 连接到本地mysql
-docker run -it --link mysql_master:mysql --rm mysql sh -c 'exec mysql -h"$MYSQL_PORT_3306_TCP_ADDR" -P"$MYSQL_PORT_3306_TCP_PORT" -uroot -p"$MYSQL_ENV_MYSQL_ROOT_PASSWORD"'
+	docker run -it --link mysql_master:mysql --rm mysql sh -c 'exec mysql -h"$MYSQL_PORT_3306_TCP_ADDR" -P"$MYSQL_PORT_3306_TCP_PORT" -uroot -p"$MYSQL_ENV_MYSQL_ROOT_PASSWORD"'
 
 ## 3 连接其他地方的mysql
-docker run -it --rm mysql mysql -hsome.mysql.host -usome-mysql-user -p
+	docker run -it --rm mysql mysql -hsome.mysql.host -usome-mysql-user -p
 
 ## 4 换到Docker Mysql的容器shell命令：
-docker exec -it mysql_master bash
+	docker exec -it mysql_master bash
 
-启动 mysql 容器，并进入 shell 命令交互界面：
-docker run -it mysql_master /bin/bash
+	启动 mysql 容器，并进入 shell 命令交互界面：
+	docker run -it mysql_master /bin/bash
 
 ## 5 退出输入：
-exit
+	exit
 
 ## 6 查看日志
-docker logs mysql_master
+	docker logs mysql_master
 
 ## 7 删除容器
-docker rm -f mysql_master
+	docker rm -f mysql_master
 
 ## 8 重新启动mysql，并挂载配置文件到宿主机
-docker run --name mysql_master -p 3316:3306 -v /opt/webMysql/conf:/etc/mysql/conf.d -v /opt/webMysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=chenfeng1982 mysql:5.7
+	docker run --name mysql_master -p 3316:3306 -v /opt/webMysql/conf:/etc/mysql/conf.d -v /opt/webMysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=chenfeng1982 mysql:5.7
 
 ## 9 在docker运行下面命令，用来创建一个mysql容器，端口为3316：
 	docker run --name mysql_master -p 3316:3306 -e MYSQL_ROOT_PASSWORD=chenfeng1982 -d mysql:5.7
