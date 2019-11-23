@@ -13,13 +13,13 @@
 
   2 启动canal
 		
-		cd /Applications/devtools/canal/canal.deployer
-		bin/startup.sh
+	cd /Applications/devtools/canal/canal.deployer
+	bin/startup.sh
 
   3 查看canal是否启动
 		
-		ps -ef|grep canal
+	ps -ef|grep canal
 
   4 查看canal端口是否已处于监听状态
 		
-		netstat -an | grep 11111
+	netstat -an | grep 11111
