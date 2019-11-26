@@ -10,13 +10,7 @@ Docker常用命令：
 ## 0-1 查看本地镜像：
 	docker images -a 
 
-## 0-2 查看运行中的容器：
-	docker ps -a
-	-a 表示所有已安装的镜像
-	docker ps -s
-	-s 表示已启动的镜像的容器
-
-## 0-3 删除指定镜像通过下面命令：
+## 0-2 删除指定镜像通过下面命令：
 	docker rmi image-id
 	删除所有镜像通过下面命令：
 	docker rmi $(docker images -q)
