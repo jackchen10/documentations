@@ -78,3 +78,10 @@ Docker常用命令：
 
 ## 11 查看docker中正在运行的容器
 	docker ps -s
+
+## 12 重启Docker中的mysql，或其他container
+	首先查询mysql或待重启的容器的container id：
+	docker ps -a
+	比如我查询Docker中mysql的CONTAINER ID是： 7d904e5ed84b
+	再执行下面的命令，进行重启：
+	docker restart 7d904e5ed84b 
