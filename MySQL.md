@@ -4,6 +4,13 @@
   * mysql -h localhost -u root -P 3306 -p
   * -p表示需要输入密码
 
+## 0-1 查看mysql用户信息命令：
+	mysql> select user,
+	    -> host,
+	    -> db,
+	    -> command
+	    -> from information_schema.processlist;
+
 ## 1 导出整个数据库
   * mysqldump -u 用户名 -p --default-character-set=latin1 数据库名 > 导出的文件名(数据库默认编码是latin1)
   * 举个栗子： mysqldump -u wcnc -p smgp_apps_wcnc > wcnc.sql
