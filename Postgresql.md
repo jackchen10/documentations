@@ -12,7 +12,8 @@
 
 ## 3.创建数据库
    * createdb--encoding=UTF8 --owner=foo --template=template_postgis -Ufoo
-	参数： --encoding=UTF8 设置数据库的字符集
+   * 参数： 
+	--encoding=UTF8 设置数据库的字符集
 	--owner=foo 设置数据库的所有者
 	--tmplate=template_postgis 设置建库的模板，该模板支持空间数据操作
 	--Ufoo 用foo用户身份建立数据库
