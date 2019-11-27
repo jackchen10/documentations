@@ -2,3 +2,5 @@
 
 ## Reference URL:
   * https://developer.aliyun.com/article/706226
+## Github URL:
+  * https://github.com/alibaba/canal
