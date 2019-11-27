@@ -8,10 +8,10 @@
 	postgres# GRANT ALL PRIVILEGES ON DATABASE xxxx2 to xxxx1;
 
 ## 2.修改密码
-	alter user postgres with password 'foobar';
+   * alter user postgres with password 'foobar';
 
 ## 3.创建数据库
-	createdb--encoding=UTF8 --owner=foo --template=template_postgis -Ufoo
+   * createdb--encoding=UTF8 --owner=foo --template=template_postgis -Ufoo
 	参数： --encoding=UTF8 设置数据库的字符集
 	--owner=foo 设置数据库的所有者
 	--tmplate=template_postgis 设置建库的模板，该模板支持空间数据操作
