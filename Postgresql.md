@@ -25,6 +25,6 @@
 	* \q
 ## 5. 修改linux系统postgres用户的密码
    * 步骤一：删除用户postgres的密码
-	* sudo  passwd -d postgres
+       * sudo  passwd -d postgres
    * 步骤二：设置用户postgres的密码
-	* sudo -u postgres passwd
+       * sudo -u postgres passwd
