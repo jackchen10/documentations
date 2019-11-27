@@ -6,4 +6,4 @@
   * https://github.com/alibaba/canal
 
 # 2 canal+zookeeper+mysql高可用配置
-## https://blog.csdn.net/weixin_41047933/article/details/85293002
+  * https://blog.csdn.net/weixin_41047933/article/details/85293002
