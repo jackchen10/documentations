@@ -20,3 +20,6 @@
   * 还有更简单的，就是用：<br> 
 		cp -a old/new/<br> 
 		-a参数，就等于-dpR
+## 3 监听端口
+  * netstat -nlp|grep  端口号
+  * lsof -i|grep 进程号
