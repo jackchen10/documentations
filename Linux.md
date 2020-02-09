@@ -22,7 +22,9 @@
 		-a参数，就等于-dpR
 ## 3 监听端口
   * netstat -nlp|grep  端口号
+    ** 如： netstat -nlp | grep 8080
   * lsof -i|grep 进程号
+    ** 如找出哪个进程在使用8080端口： lsof -i :8080
 
 ## 4 CentOS7防火墙命令
   * 查看已经开放的端口：
